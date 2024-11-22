@@ -6,4 +6,6 @@ router.get("/ubs", ubsController.getAllUBS);
 
 router.get("/:id", ubsController.getUBSById);
 
+router.get("/:id/medicos", ubsController.getMedicosByUBS);
+
 module.exports = router;
