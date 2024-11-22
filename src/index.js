@@ -1,13 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 300;
+const ubsRoutes = require("./routes/ubsRouter");
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send("Servidor funcionando!")
-});
+app.use("/api", ubsRoutes);
 
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`)
-});
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`)
+})
