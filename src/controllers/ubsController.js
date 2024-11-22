@@ -32,4 +32,39 @@ const getMedicosByUBS = (req, res) => {
     return res.json(medicos);
 }
 
-module.exports = { getAllUBS, getUBSById,  getMedicosByUBS};
+let idCounter = medicosData.length + 1;
+const addMedico = (req, res) => {
+    const ubsId = parseInt(req.params.id);
+    const { nome, especialidade, horario_atendimento, telefone } = req.body;
+
+    if (!nome || !especialidade || !horario_atendimento || !telefone) {
+        return res.status(400).json({ message: "Todos os campos são obrigatórios." });
+    }
+
+    const ubsExiste = medicosData.some(medico => medico.ubs_id === ubsId);
+
+    if (!ubsExiste) {
+        return res.status(404).json({ message: "UBS não encontrada." });
+    }
+
+    const novoMedico = {
+        id: idCounter++,
+        nome,
+        especialidade,
+        ubs_id: ubsId,
+        horario_atendimento,
+        telefone
+    };
+
+    medicosData.push(novoMedico);
+
+    return res.status(201).json(novoMedico);
+
+};
+
+module.exports = { 
+    getAllUBS, 
+    getUBSById,  
+    getMedicosByUBS,
+    addMedico
+};

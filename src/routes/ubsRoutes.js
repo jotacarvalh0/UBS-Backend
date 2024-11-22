@@ -8,4 +8,6 @@ router.get("/:id", ubsController.getUBSById);
 
 router.get("/:id/medicos", ubsController.getMedicosByUBS);
 
+router.post("/:id/medicos", ubsController.addMedico);
+
 module.exports = router;
