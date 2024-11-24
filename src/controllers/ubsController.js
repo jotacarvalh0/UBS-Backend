@@ -26,7 +26,7 @@ const getMedicosByUBS = (req, res) => {
 
     const medicos = medicosData.filter((medico) => medico.ubs_id === ubsId);
 
-    if (medicos.lenght === 0) {
+    if (medicos.length === 0) {
         return res.status(404).json({ message: "Nenhum médico encontrado para essa UBS." });
     }
 
@@ -105,7 +105,7 @@ const getCampanhasByUBS = (req, res) => {
 
     const campanhas = campanhasData.filter((campanhas) => campanhas.ubs_id === ubsId);
 
-    if (campanhas.lenght === 0) {
+    if (campanhas.length === 0) {
         return res.status(404).json({ message: "Nenhuma campanha encontrada para essa UBS." });
     }
 
