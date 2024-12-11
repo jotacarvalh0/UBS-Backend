@@ -17,7 +17,7 @@ router.put("/:id/medicos/:medicoId", basicAuth, ubsController.editMedico);
 router.delete("/:id/medicos/:medicoId", basicAuth, ubsController.deleteMedico);
 
 router.get("/:id/campanhas", ubsController.getCampanhasByUBS);
-router.post("/:id/campanhas", basicAuth, ubsController.addCampanha);
+router.post("/:id/campanhas", ubsController.addCampanha);
 router.put("/:id/campanhas/:campanhaId", basicAuth, ubsController.editCampanha);
 router.delete("/:id/campanhas/:campanhaId", basicAuth, ubsController.deleteCampanha);
 
